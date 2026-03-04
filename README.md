@@ -1,7 +1,7 @@
 
 # Automated Load Transient Test
 
-A Python_based Automated test script for load transient testing of the power distribution network is created.
+A Python based Automated test script for load transient testing of a power distribution network is created.
 
 ### Instruments used:
 
