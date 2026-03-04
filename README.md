@@ -59,7 +59,7 @@ The oscilloscope is configured to:
 - Use Edge Trigger mode
 - Trigger on the falling edge (to capture voltage dip)
 - Set trigger level at 97% of nominal voltage
-- Capture waveform in Single-shot mode
+- Capture waveform in Single mode
 
 ### 7. Perform Transient Measurement
 The load step is triggered and the oscilloscope measures:
