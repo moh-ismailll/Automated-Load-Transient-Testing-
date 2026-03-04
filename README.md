@@ -84,3 +84,4 @@ are saved to a CSV file for documentation and further analysis.
 - https://www.youtube.com/watch?v=TLUTCDbt52I
 - https://github.com/pyvisa/pyvisa/blob/main/docs/source/introduction/example.rst
 - https://iotexpert.com/pyvisa-first-use/
+- https://www.eevblog.com/forum/projects/exit/#:~:text=There%20are%20many%20ways%20to,%2C%20or%20WiFi%2C%20or%20GPIB.&text=Right%20now%20I'm%20using,but%20I%20didn't%20try.&text=pip%20install%20pyvisa%2Dpy%20That's%20it%2C%20all%20installed%20now.&text=ping%20192.168.,now%20let's%20try%20from%20Python.&text=to%20identify%20itself-,%3E%3E%3E%20print%20(dp832.,%22*IDN%22))&text=Those%20numbers%20read%20by%20Python,front%20panel%20at%20that%20moment.&text=Once%20we%20have%20those%20numbers,with%20USB%20instead%20of%20LAN
