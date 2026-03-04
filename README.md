@@ -24,48 +24,56 @@ A Python_based Automated test script for load transient testing of the power dis
 ### PyVISA
 PyVISA is an open-source Python package that enables easy control of measurement instruments and test equipment (oscilloscopes, multimeters, power supplies) via GPIB, RS232, USB, and Ethernet. It acts as a wrapper for the Virtual Instrument Software Architecture (VISA) standard, allowing Python scripts to communicate with devices across Windows, Linux, and macOS. 
 
-### Breakdown of the Python Script
+## 🔎 Breakdown of the Python Script
 
-1. Initialize VISA Resource Manager: The script initializes PyVISA and lists all connected instruments to identify their USB addresses.
+### 1. Initialize VISA Resource נאר
+The script initializes PyVISA and lists all connected instruments to identify their USB addresses.
 
-2. Connect to Test Instruments, It opens communication with:
-Power Supply (PSU),
-Electronic Load,
-Oscilloscope,
-Digital Multimeter (DMM).
+### 2. Connect to Test Instruments
+The script opens communication with:
+- Power Supply (PSU)
+- Electronic Load
+- Oscilloscope
+- Digital Multimeter (DMM)
 
-3. Instrument identity is verified using *IDN?.
+Each instrument identity is verified using the `*IDN?` command.
 
-4. Define Test Rails: A dictionary stores rail parameters including:
-[Nominal voltage,
-Maximum current]
+### 3. Define Test Rails
+A dictionary is used to store rail parameters including:
+- Nominal Voltage
+- Maximum Current
 
-5. Set Input Voltage: The PSU is configured to provide a fixed 5V input to the DUT.
+This structure allows scalable testing for multiple rails.
 
-6. Configure Load Transient Conditions: The electronic load is set to Constant Current (CC) mode.
+### 4. Set Input Voltage
+The Power Supply Unit (PSU) is configured to provide a fixed 5V input to the DUT.
 
---> Step from No-Load (0A) to Full-Load (Imax)
+### 5. Configure Load Transient Conditions
+The electronic load is configured to:
+- Operate in Constant Current (双色 CC) mode
+- Step from No-Load (0A) to Full-Load (Imax)
+- Trigger using a BUS command
 
--->Triggered via BUS command
+### 6. Configure Oscilloscope Triggering
+The oscilloscope is configured to:
+- Use Edge Trigger mode
+- Trigger on the falling edge (to capture voltage dip)
+- Set trigger level at 97% of nominal voltage
+- Capture waveform in Single-shot mode
 
-7. Configure Oscilloscope: Triggering The oscilloscope is configured to:
+### 7. Perform Transient Measurement
+The load step is triggered and the oscilloscope measures:
+- Minimum voltage (Undershoot)
+- Maximum voltage (Overshoot)
 
---> Use edge trigger mode
+The measured values are compared against ±5% voltage limits to determine PASS/FAIL status.
 
---> Trigger on falling edge (to capture voltage dip)
+### 8. Log Results to CSV
+All rail results — including:
+- Rail Name
+- Undershoot
+- Overshoot
+- PASS/FAIL Status
+- Timestamp
 
---> Set trigger level at 97% of nominal voltage
-
---> Capture waveform in single mode
-
-8. Perform Transient Measurement: The load step is triggered and the oscilloscope measures:
-
---> Minimum voltage (undershoot)
-
---> Maximum voltage (overshoot)
-
-The results are compared against ±5% limits.
-
-9. Log Results to CSV:
-
---> All rail results (including PASS/FAIL status and timestamp) are saved to a CSV file for documentation and analysis.
+are saved to a CSV file for documentation and further analysis.
