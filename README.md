@@ -26,7 +26,7 @@ PyVISA is an open-source Python package that enables easy control of measurement
 
 ## 🔎 Breakdown of the Python Script
 
-### 1. Initialize VISA Resource נאר
+### 1. Initialize VISA Resource 
 The script initializes PyVISA and lists all connected instruments to identify their USB addresses.
 
 ### 2. Connect to Test Instruments
@@ -50,7 +50,7 @@ The Power Supply Unit (PSU) is configured to provide a fixed 5V input to the DUT
 
 ### 5. Configure Load Transient Conditions
 The electronic load is configured to:
-- Operate in Constant Current (双色 CC) mode
+- Operate in Constant Current (CC) mode
 - Step from No-Load (0A) to Full-Load (Imax)
 - Trigger using a BUS command
 
@@ -77,3 +77,10 @@ All rail results — including:
 - Timestamp
 
 are saved to a CSV file for documentation and further analysis.
+
+
+### 📖 Resources
+- https://www.youtube.com/watch?v=1HQxnz3P9P4
+- https://www.youtube.com/watch?v=TLUTCDbt52I
+- https://github.com/pyvisa/pyvisa/blob/main/docs/source/introduction/example.rst
+- https://iotexpert.com/pyvisa-first-use/
